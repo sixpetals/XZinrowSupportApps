@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Microsoft.Practices.Prism.Mvvm;
 
-namespace GameMasterSupportApp.View {
+namespace GameMasterSupportApp.Views {
     public partial class MainPage : ContentPage , IView{
         public MainPage() {
             InitializeComponent();

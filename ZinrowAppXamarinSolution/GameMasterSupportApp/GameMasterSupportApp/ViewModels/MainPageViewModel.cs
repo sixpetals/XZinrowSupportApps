@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace GameMasterSupportApp.ViewModel {
-    public class MainViewModel : BindableBase{
+namespace GameMasterSupportApp.ViewModels {
+    public class MainPageViewModel : BindableBase{
         private string timerText;
 
         public string TimerText {
