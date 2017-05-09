@@ -10,7 +10,7 @@ namespace GameMasterSupportApp {
         public App() {
             InitializeComponent();
 
-            MainPage = new GameMasterSupportApp.MainPage();
+            MainPage = new GameMasterSupportApp.View.MainPage();
         }
 
         protected override void OnStart() {
