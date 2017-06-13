@@ -6,6 +6,7 @@
              x:Class="ZinrowMaster.Views.MainPage"
              Title="MainPage">
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
+        <Label Text="{Binding Title}" />
+        <Button Text="押すなよ、絶対押すなよ" Command="{Binding NavigateSecondCommand}"></Button>  
   </StackLayout>
 </ContentPage>

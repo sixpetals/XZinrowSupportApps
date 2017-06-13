@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 
 namespace ZinrowMaster.ViewModels {
     public class MainPageViewModel : BindableBase, INavigationAware {
@@ -11,6 +12,20 @@ namespace ZinrowMaster.ViewModels {
         public string Title {
             get { return _title; }
             set { SetProperty(ref _title, value); }
+        }
+
+        private readonly INavigationService _navigationService;
+
+        public ICommand NavigateSecondCommand { get; }
+
+        public MainPageViewModel(INavigationService navigationService) {
+            _navigationService = navigationService;
+
+            NavigateSecondCommand = new DelegateCommand(() =>
+            {
+                _navigationService.NavigateAsync("SecondPage");
+            });
+
         }
 
         public MainPageViewModel() {
