@@ -5,7 +5,27 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ZinrowMaster.Views.SecondPage"
                           Title="SecondPage">
-             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="Second Page."/>
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="人狼タイマー"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="{Binding MinText}" FontSize="Large" />
+            <Label Text=":" FontSize="Large" />
+            <Label Text="{Binding SecText}" FontSize="Large" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="スタート" Command="{Binding StartTimerCommand}"></Button>
+            <Button Text="ストップ" Command="{Binding StopTimerCommand}"></Button>
+        </StackLayout>
+
+        <Button Text="リセット" Command="{Binding ResetTimerCommand}"></Button>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Text="+1分" Command="{Binding Plus1MinCommand}"></Button>
+            <Button Text="+10秒" Command="{Binding Plus10SecCommand}"></Button>
+            <Button Text="-10秒" Command="{Binding Minus10SecCommand}"></Button>
+            <Button Text="-1分" Command="{Binding Minus1MinCommand}"></Button>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
