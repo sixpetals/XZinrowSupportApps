@@ -1,53 +1,75 @@
-﻿using Prism.Commands;
+﻿using Amoenus.PclTimer;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace ZinrowMaster.ViewModels
 {
     public class SecondPageViewModel : BindableBase
     {
+
+        private CountDownTimer _timer;
+
         public SecondPageViewModel() {
 
+            _timer = new CountDownTimer(TimeSpan.FromSeconds(300));
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.IntervalPassed += _timer_IntervalPassed;
+
             Plus1MinCommand = new DelegateCommand(() => {
-                Sec += 60;
+                _timer.CurrentTime.Add(TimeSpan.FromMinutes(1));
+                UpdateTimer();
             });
 
             Plus10SecCommand = new DelegateCommand(() => {
-                Sec += 10;
+                _timer.CurrentTime.Add(TimeSpan.FromSeconds(10));
+                UpdateTimer();
 
             });
 
             Minus10SecCommand = new DelegateCommand(() => {
-                Sec -= 10;
+                _timer.CurrentTime.Subtract(TimeSpan.FromSeconds(10));
+                UpdateTimer();
             });
 
 
             Minus1MinCommand = new DelegateCommand(() => {
-                Sec -= 60;
+                _timer.CurrentTime.Subtract(TimeSpan.FromMinutes(1));
+                UpdateTimer();
             });
 
 
-            StartCommand = new DelegateCommand(() => {
-
+            StartTimerCommand = new DelegateCommand(() => {
+                _timer.Start();
+                UpdateTimer();
             });
 
 
-            StopCommand = new DelegateCommand(() => {
-
+            StopTimerCommand = new DelegateCommand(() => {
+                _timer.Stop();
+                UpdateTimer();
             });
 
 
-            ResetCommand = new DelegateCommand(() => {
-                Sec = 300;
+            ResetTimerCommand = new DelegateCommand(() => {
+                _timer.Reset();
+                UpdateTimer();
             });
 
 
 
 
+        }
+
+        private void _timer_IntervalPassed(object sender, EventArgs e) {
+            UpdateTimer();
+        }
+
+        private void UpdateTimer() {
+            Sec = (int)_timer.CurrentTime.TotalSeconds;
         }
 
         public ICommand Plus1MinCommand { get; }
@@ -60,11 +82,11 @@ namespace ZinrowMaster.ViewModels
 
 
 
-        public ICommand StartCommand { get; }
+        public ICommand StartTimerCommand { get; }
 
-        public ICommand StopCommand { get; }
+        public ICommand StopTimerCommand { get; }
 
-        public ICommand ResetCommand { get; }
+        public ICommand ResetTimerCommand { get; }
         
 
         private int _sec = 300;
