@@ -5,8 +5,17 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ZinrowMaster.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="{Binding Title}" />
-        <Button Text="押すなよ、絶対押すなよ" Command="{Binding NavigateSecondCommand}"></Button>  
-  </StackLayout>
+    <RelativeLayout>
+        <Image x:Name="BackgroundImage"  Source="Jupiter.png" Opacity="1"
+               Aspect="AspectFill"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+        <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="{Binding Title}" />
+                <Button Text="押すなよ、絶対押すなよ" Command="{Binding NavigateSecondCommand}"></Button>  
+            </StackLayout>
+        </Grid>
+    </RelativeLayout>
 </ContentPage>
