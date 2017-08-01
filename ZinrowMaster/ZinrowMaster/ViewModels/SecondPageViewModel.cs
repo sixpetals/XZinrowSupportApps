@@ -1,19 +1,24 @@
 ﻿using Amoenus.PclTimer;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using ZinrowMaster.Services;
+using DependencyService = Xamarin.Forms.DependencyService;
 
 namespace ZinrowMaster.ViewModels
 {
-    public class SecondPageViewModel : BindableBase
-    {
+    public class SecondPageViewModel : BindableBase, INavigationAware {
 
         private CountDownTimer _timer;
 
-        public SecondPageViewModel() {
+        private readonly IMusicPlayer _musicPlayer;
+
+        public SecondPageViewModel(IMusicPlayer musicPlayer) {
+            _musicPlayer = musicPlayer;
 
             _timer = new CountDownTimer(TimeSpan.FromSeconds(300));
             _timer.Interval = TimeSpan.FromSeconds(1);
@@ -60,7 +65,9 @@ namespace ZinrowMaster.ViewModels
             });
 
 
-
+            BGM1Command = new DelegateCommand(() => {
+                _musicPlayer.PlayAsync("openingBGM"); 
+            });
 
         }
 
@@ -71,6 +78,20 @@ namespace ZinrowMaster.ViewModels
         private void UpdateTimer() {
             Sec = (int)_timer.CurrentTime.TotalSeconds;
         }
+
+        public void OnNavigatedFrom(NavigationParameters parameters) {
+
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters) {
+
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters) {
+
+        }
+
+        public ICommand BGM1Command { get; }
 
         public ICommand Plus1MinCommand { get; }
 

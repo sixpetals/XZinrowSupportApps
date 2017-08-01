@@ -7,6 +7,15 @@
                           Title="SecondPage">
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="人狼タイマー"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Text="その１" Command="{Binding BGM1Command}" />
+        </Grid>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="{Binding MinText}" FontSize="Large" />
