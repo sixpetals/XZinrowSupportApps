@@ -64,10 +64,60 @@ namespace ZinrowMaster.ViewModels
                 UpdateTimer();
             });
 
-
-            BGM1Command = new DelegateCommand(() => {
-                _musicPlayer.PlayAsync("openingBGM"); 
+            BGMStopCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
             });
+
+            BGMOpeningCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("openingBGM");
+            });
+
+            BGMRoleCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("confirmBGM");
+            });
+
+            BGMMorningCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("morningBGM");
+            });
+            BGMDayTimeCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("discussionBGM");
+            });
+
+            BGMVoteCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("voteBGM");
+            });
+
+            BGMExecuteCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("executionBGM");
+            });
+
+            BGMNightCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("nightBGM");
+            });
+
+
+            BGMVillagerWinCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("victoryBGM_villagers");
+            });
+
+            BGMWerewolfWinCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("victoryBGM_werewolf");
+            });
+
+            BGMThirdPartyWinCommand = new DelegateCommand(() => {
+                _musicPlayer.Stop();
+                _musicPlayer.PlayAsync("victoryBGM_3rdParty");
+            });
+        
 
         }
 
@@ -91,7 +141,37 @@ namespace ZinrowMaster.ViewModels
 
         }
 
-        public ICommand BGM1Command { get; }
+
+
+        public ICommand BGMStopCommand { get; }
+
+        public ICommand BGMOpeningCommand { get; }
+
+        public ICommand BGMRoleCommand { get; }
+
+
+        public ICommand BGMMorningCommand { get; }
+
+        public ICommand BGMDayTimeCommand { get; }
+
+
+
+        public ICommand BGMVoteCommand { get; }
+
+        public ICommand BGMExecuteCommand { get; }
+
+        public ICommand BGMNightCommand { get; }
+
+
+        public ICommand BGMVillagerWinCommand { get; }
+
+        public ICommand BGMWerewolfWinCommand { get; }
+
+        public ICommand BGMThirdPartyWinCommand { get; }
+
+
+
+
 
         public ICommand Plus1MinCommand { get; }
 

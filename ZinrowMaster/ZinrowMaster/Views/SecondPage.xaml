@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="ZinrowMaster.Views.SecondPage"
-                          Title="SecondPage">
+             x:Class="ZinrowMaster.Views.SecondPage" Title="SecondPage">
     <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="人狼タイマー"/>
         <Grid>
@@ -14,7 +13,23 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="その１" Command="{Binding BGM1Command}" />
+            <Button Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0" Text="BGMの停止" Command="{Binding BGMStopCommand}" />
+
+            <BoxView Grid.Row="1" Grid.ColumnSpan="3"  Grid.Column="0" HeightRequest="1"  BackgroundColor="White" />
+
+            <Button Grid.Row="2" Grid.Column="0" Text="プロローグ" Command="{Binding BGMOpeningCommand}" />
+            <Button Grid.Row="2" Grid.Column="1" Text="役職確認" Command="{Binding BGMRoleCommand}" />
+            
+            <Button Grid.Row="3" Grid.Column="0" Text="朝" Command="{Binding BGMMorningCommand}" />
+            <Button Grid.Row="3" Grid.Column="1" Text="昼（議論）" Command="{Binding BGMDayTimeCommand}" />
+            
+            <Button Grid.Row="4" Grid.Column="0" Text="投票" Command="{Binding BGMVoteCommand}" />
+            <Button Grid.Row="4" Grid.Column="1" Text="処刑" Command="{Binding BGMExecuteCommand}" />
+            <Button Grid.Row="4" Grid.Column="2" Text="夜" Command="{Binding BGMNightCommand}" />
+
+            <Button Grid.Row="5" Grid.Column="0" Text="村人勝利" Command="{Binding BGMVillagerWinCommand}" />
+            <Button Grid.Row="5" Grid.Column="1" Text="人狼勝利" Command="{Binding BGMWerewolfWinCommand}" />
+            <Button Grid.Row="5" Grid.Column="2" Text="第三勝利" Command="{Binding BGMThirdPartyWinCommand}" />
         </Grid>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">

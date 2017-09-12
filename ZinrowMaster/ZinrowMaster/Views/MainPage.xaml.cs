@@ -6,7 +6,7 @@ namespace ZinrowMaster.Views {
 
           
             InitializeComponent();
-            this.BackgroundImage.Source  = ImageSource.FromResource("ZinrowMaster.Resources.background.png");
+            this.BgImage.Source  = ImageSource.FromResource("ZinrowMaster.Resources.background.png");
 
         }
     }

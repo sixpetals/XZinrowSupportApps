@@ -2950,7 +2950,34 @@ namespace ZinrowMaster.Droid
 		{
 			
 			// aapt resource value: 0x7f060000
-			public const int openingBGM = 2131099648;
+			public const int confirmBGM = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int discussionBGM = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int executionBGM = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int morningBGM = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int nightBGM = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int openingBGM = 2131099653;
+			
+			// aapt resource value: 0x7f060006
+			public const int victoryBGM_3rdParty = 2131099654;
+			
+			// aapt resource value: 0x7f060007
+			public const int victoryBGM_villagers = 2131099655;
+			
+			// aapt resource value: 0x7f060008
+			public const int victoryBGM_werewolf = 2131099656;
+			
+			// aapt resource value: 0x7f060009
+			public const int voteBGM = 2131099657;
 			
 			static Raw()
 			{

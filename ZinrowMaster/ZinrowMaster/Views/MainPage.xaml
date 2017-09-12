@@ -6,8 +6,7 @@
              x:Class="ZinrowMaster.Views.MainPage"
              Title="MainPage">
     <RelativeLayout>
-        <Image x:Name="BackgroundImage"  Source="Jupiter.png" Opacity="1"
-               Aspect="AspectFill"
+        <Image x:Name="BgImage"  Source="background.png" Opacity="1" Aspect="AspectFill"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
         <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
