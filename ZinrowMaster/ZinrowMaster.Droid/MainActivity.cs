@@ -7,7 +7,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Prism.Unity;
-using Microsoft.Practices.Unity;
+using Prism;
+using Unity;
+using Prism.Ioc;
 
 namespace ZinrowMaster.Droid {
     [Activity(Label = "ZinrowMaster", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -24,7 +26,7 @@ namespace ZinrowMaster.Droid {
     }
 
     public class AndroidInitializer : IPlatformInitializer {
-        public void RegisterTypes(IUnityContainer container) {
+        public void RegisterTypes(IContainerRegistry registry) {
 
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZinrowMaster", "ZinrowMaster\ZinrowMaster\ZinrowMaster.csproj", "{AA0D4586-841C-4D09-B7B4-AE33F6ED0A52}"
 EndProject
@@ -96,6 +96,7 @@ Global
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.Debug|iPhone.Build.0 = Debug|iPhone
 		{6F42CAD3-C2DE-4774-B3A5-75602705A904}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
@@ -108,5 +109,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7029672-EFEB-4F4A-860C-2C8D897F611E}
 	EndGlobalSection
 EndGlobal

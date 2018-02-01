@@ -5,7 +5,9 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using Prism.Unity;
-using Microsoft.Practices.Unity;
+using Prism;
+using Prism.Ioc;
+using ZinrowMaster;
 
 namespace ZinrowMaster.iOS {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -29,7 +31,7 @@ namespace ZinrowMaster.iOS {
     }
 
     public class iOSInitializer : IPlatformInitializer {
-        public void RegisterTypes(IUnityContainer container) {
+        public void RegisterTypes(IContainerRegistry registry) {
 
         }
     }

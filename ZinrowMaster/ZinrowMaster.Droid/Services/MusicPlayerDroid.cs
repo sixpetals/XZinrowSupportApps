@@ -16,17 +16,28 @@ using System.Threading.Tasks;
 
 [assembly: Dependency(typeof(MusicPlayerDroid))]
 
-namespace ZinrowMaster.Droid.Services {
-    public class MusicPlayerDroid : IMusicPlayer {
+namespace ZinrowMaster.Droid.Services
+{
+    public class MusicPlayerDroid : IMusicPlayer
+    {
         MediaPlayer player = null;
 
-        private async Task StartPlayerAsync(string title) {
+        private async Task StartPlayerAsync(string title)
+        {
             var resourceId = (int)typeof(Resource.Raw).GetField(title).GetValue(null);
 
-            await Task.Run(() => {
-                if (player == null) {
+            await Task.Run(() =>
+            {
+                if (player == null)
+                {
                     player = new MediaPlayer();
-                    player.SetAudioStreamType(Stream.Music);
+
+                    var attr = new AudioAttributes.Builder()
+                        .SetUsage(AudioUsageKind.Media)
+                        .SetContentType(AudioContentType.Music)
+                        .Build();
+
+                    player.SetAudioAttributes(attr);
 
                     player = MediaPlayer.Create(
                                 global::Android.App.Application.Context,
@@ -34,19 +45,27 @@ namespace ZinrowMaster.Droid.Services {
                             );
                     player.Looping = true;
                     player.Start();
-                } else {
-                    if (player.IsPlaying == true) {
+                }
+                else
+                {
+                    if (player.IsPlaying == true)
+                    {
                         player.Pause();
-                    } else {
+                    }
+                    else
+                    {
                         player.Start();
                     }
                 }
             });
         }
 
-        private void StopPlayer() {
-            if ((player != null)) {
-                if (player.IsPlaying) {
+        private void StopPlayer()
+        {
+            if ((player != null))
+            {
+                if (player.IsPlaying)
+                {
                     player.Stop();
                 }
                 player.Release();
@@ -54,11 +73,13 @@ namespace ZinrowMaster.Droid.Services {
             }
         }
 
-        public async Task PlayAsync(string title) {
+        public async Task PlayAsync(string title)
+        {
             await StartPlayerAsync(title);
         }
 
-        public void Stop() {
+        public void Stop()
+        {
             StopPlayer();
         }
     }

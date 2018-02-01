@@ -1,6 +1,8 @@
 ﻿using Prism.Unity;
 using ZinrowMaster.Views;
 using Xamarin.Forms;
+using Prism;
+using Prism.Ioc;
 
 namespace ZinrowMaster {
     public partial class App : PrismApplication {
@@ -12,10 +14,10 @@ namespace ZinrowMaster {
             NavigationService.NavigateAsync("NavigationPage/MainPage?title=Hello%20from%20Xamarin.Forms");
         }
 
-        protected override void RegisterTypes() {
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
-            Container.RegisterTypeForNavigation<SecondPage>();
+        protected override void RegisterTypes(IContainerRegistry registry) {
+            registry.RegisterForNavigation<NavigationPage>();
+            registry.RegisterForNavigation<MainPage>();
+            registry.RegisterForNavigation<SecondPage>();
         }
     }
 }
