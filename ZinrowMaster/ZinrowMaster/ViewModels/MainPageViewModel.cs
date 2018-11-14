@@ -13,18 +13,7 @@ namespace ZinrowMaster.ViewModels {
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
-
-        private readonly INavigationService _navigationService;
-
-        public ICommand NavigateSecondCommand { get; }
-
         public MainPageViewModel(INavigationService navigationService) {
-            _navigationService = navigationService;
-
-            NavigateSecondCommand = new DelegateCommand(() =>
-            {
-                _navigationService.NavigateAsync("SecondPage");
-            });
 
         }
 

@@ -14,7 +14,7 @@
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <Label Text="{Binding Title}" />
-                <Button Text="押すなよ、絶対押すなよ" Command="{prismNv:NavigateTo  'SecondPage'}"></Button>  
+                <Button Text="押すなよ、絶対押すなよ" Command="{prismNv:NavigateTo 'SecondPage'}"></Button>  
             </StackLayout>
         </Grid>
     </RelativeLayout>
