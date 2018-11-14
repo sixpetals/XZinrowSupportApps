@@ -32,15 +32,15 @@ namespace ZinrowMaster.ViewModels {
 
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters) {
+        public void OnNavigatedFrom(INavigationParameters parameters) {
 
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters) {
+        public void OnNavigatingTo(INavigationParameters parameters) {
 
         }
 
-        public void OnNavigatedTo(NavigationParameters parameters) {
+        public void OnNavigatedTo(INavigationParameters parameters) {
             if (parameters.ContainsKey("title"))
                 Title = (string)parameters["title"] + " and Prism";
         }

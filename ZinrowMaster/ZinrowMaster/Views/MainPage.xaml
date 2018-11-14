@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:prismVm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:prismNv="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+             prismVm:ViewModelLocator.AutowireViewModel="True"
              x:Class="ZinrowMaster.Views.MainPage"
              Title="MainPage">
     <RelativeLayout>
@@ -13,7 +14,7 @@
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <Label Text="{Binding Title}" />
-                <Button Text="押すなよ、絶対押すなよ" Command="{Binding NavigateSecondCommand}"></Button>  
+                <Button Text="押すなよ、絶対押すなよ" Command="{prismNv:NavigateTo  'SecondPage'}"></Button>  
             </StackLayout>
         </Grid>
     </RelativeLayout>
