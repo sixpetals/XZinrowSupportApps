@@ -17,8 +17,8 @@ namespace ZinrowMaster.ViewModels
 
         private readonly IMusicPlayer _musicPlayer;
 
-        public SecondPageViewModel(IMusicPlayer musicPlayer) {
-            _musicPlayer = musicPlayer;
+        public SecondPageViewModel() {
+            _musicPlayer = DependencyService.Get<IMusicPlayer>();
 
             _timer = new CountDownTimer(TimeSpan.FromSeconds(300));
             _timer.Interval = TimeSpan.FromSeconds(1);
