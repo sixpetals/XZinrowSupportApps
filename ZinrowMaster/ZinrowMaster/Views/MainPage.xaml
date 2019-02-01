@@ -5,17 +5,24 @@
              xmlns:prismNv="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
              prismVm:ViewModelLocator.AutowireViewModel="True"
              x:Class="ZinrowMaster.Views.MainPage"
+             NavigationPage.HasNavigationBar="false"
              Title="MainPage">
     <RelativeLayout>
         <Image x:Name="BgImage" 
                Source="background.png" Opacity="1"
                Aspect="AspectFill"
                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-        <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                <Label Text="{Binding Title}" />
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+               />
+        <Grid
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            >
+            <StackLayout
+                Orientation="Vertical"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Label HorizontalTextAlignment="Center" Text="{Binding Title}" />
                 <Button Text="開始する"
                         Command="{prismNv:NavigateTo 'SecondPage'}"></Button>  
             </StackLayout>

@@ -4,64 +4,80 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ZinrowMaster.Views.SecondPage"
-             Title="SecondPage">
+             Title="SecondPage"
+             NavigationPage.HasNavigationBar="false"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="DarkRed" />
+                <Setter Property="BorderRadius" Value="16"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <RelativeLayout>
         <Image x:Name="BgImage" 
                Source="background.png" Opacity="1"
                Aspect="AspectFill"
                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
-
-        <StackLayout Orientation="Vertical"
+        <Grid
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            BackgroundColor="Transparent"
+            >
+            <StackLayout Orientation="Vertical"
                      HorizontalOptions="Center"
-                     VerticalOptions="Center"
+                     VerticalOptions="Fill"
+                     BackgroundColor="Transparent"
                      >
-            <Label Text="人狼タイマー"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0"
+                        Text="BGMの停止" Command="{Binding BGMStopCommand}" />
+                <BoxView Grid.Row="1" Grid.ColumnSpan="3"  Grid.Column="0"
+                             HeightRequest="1" WidthRequest="100"
+                             BackgroundColor="White" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Text="プロローグ" Command="{Binding BGMOpeningCommand}" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="役職確認" Command="{Binding BGMRoleCommand}" />
 
-                <Button Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0" Text="BGMの停止" Command="{Binding BGMStopCommand}" />
+                    <Button Grid.Row="1" Grid.Column="0" Text="朝" Command="{Binding BGMMorningCommand}" />
+                    <Button Grid.Row="1" Grid.Column="1" Text="昼（議論）" Command="{Binding BGMDayTimeCommand}" />
 
-                <BoxView Grid.Row="1" Grid.ColumnSpan="3"  Grid.Column="0" HeightRequest="1"  BackgroundColor="White" />
+                    <Button Grid.Row="2" Grid.Column="0" Text="投票" Command="{Binding BGMVoteCommand}" />
+                    <Button Grid.Row="2" Grid.Column="1" Text="処刑" Command="{Binding BGMExecuteCommand}" />
+                    <Button Grid.Row="2" Grid.Column="2" Text="夜" Command="{Binding BGMNightCommand}" />
 
-                <Button Grid.Row="2" Grid.Column="0" Text="プロローグ" Command="{Binding BGMOpeningCommand}" />
-                <Button Grid.Row="2" Grid.Column="1" Text="役職確認" Command="{Binding BGMRoleCommand}" />
+                    <Button Grid.Row="3" Grid.Column="0" Text="村人勝利" Command="{Binding BGMVillagerWinCommand}" />
+                    <Button Grid.Row="3" Grid.Column="1" Text="人狼勝利" Command="{Binding BGMWerewolfWinCommand}" />
+                    <Button Grid.Row="3" Grid.Column="2" Text="第三勝利" Command="{Binding BGMThirdPartyWinCommand}" />
+                </Grid>
 
-                <Button Grid.Row="3" Grid.Column="0" Text="朝" Command="{Binding BGMMorningCommand}" />
-                <Button Grid.Row="3" Grid.Column="1" Text="昼（議論）" Command="{Binding BGMDayTimeCommand}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="{Binding MinText}" FontSize="Large" />
+                    <Label Text=":" FontSize="Large" />
+                    <Label Text="{Binding SecText}" FontSize="Large" />
+                </StackLayout>
 
-                <Button Grid.Row="4" Grid.Column="0" Text="投票" Command="{Binding BGMVoteCommand}" />
-                <Button Grid.Row="4" Grid.Column="1" Text="処刑" Command="{Binding BGMExecuteCommand}" />
-                <Button Grid.Row="4" Grid.Column="2" Text="夜" Command="{Binding BGMNightCommand}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Button Text="スタート" Command="{Binding StartTimerCommand}"></Button>
+                    <Button Text="ストップ" Command="{Binding StopTimerCommand}"></Button>
+                </StackLayout>
 
-                <Button Grid.Row="5" Grid.Column="0" Text="村人勝利" Command="{Binding BGMVillagerWinCommand}" />
-                <Button Grid.Row="5" Grid.Column="1" Text="人狼勝利" Command="{Binding BGMWerewolfWinCommand}" />
-                <Button Grid.Row="5" Grid.Column="2" Text="第三勝利" Command="{Binding BGMThirdPartyWinCommand}" />
-            </Grid>
+                <Button Text="5分にリセット" Command="{Binding ResetTimerCommand}"></Button>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <Label Text="{Binding MinText}" FontSize="Large" />
-                <Label Text=":" FontSize="Large" />
-                <Label Text="{Binding SecText}" FontSize="Large" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Button Text="+1分" Command="{Binding Plus1MinCommand}"></Button>
+                    <Button Text="+10秒" Command="{Binding Plus10SecCommand}"></Button>
+                    <Button Text="-10秒" Command="{Binding Minus10SecCommand}"></Button>
+                    <Button Text="-1分" Command="{Binding Minus1MinCommand}"></Button>
+                </StackLayout>
             </StackLayout>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <Button Text="スタート" Command="{Binding StartTimerCommand}"></Button>
-                <Button Text="ストップ" Command="{Binding StopTimerCommand}"></Button>
-            </StackLayout>
-
-            <Button Text="リセット" Command="{Binding ResetTimerCommand}"></Button>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <Button Text="+1分" Command="{Binding Plus1MinCommand}"></Button>
-                <Button Text="+10秒" Command="{Binding Plus10SecCommand}"></Button>
-                <Button Text="-10秒" Command="{Binding Minus10SecCommand}"></Button>
-                <Button Text="-1分" Command="{Binding Minus1MinCommand}"></Button>
-            </StackLayout>
-        </StackLayout>
+        </Grid>
     </RelativeLayout>
 </ContentPage>
