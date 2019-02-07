@@ -58,10 +58,13 @@
                     <Button Grid.Row="3" Grid.Column="2" Text="第三勝利" Command="{Binding BGMThirdPartyWinCommand}" />
                 </Grid>
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="{Binding MinText}" FontSize="Large" />
-                    <Label Text=":" FontSize="Large" />
-                    <Label Text="{Binding SecText}" FontSize="Large" />
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             HeightRequest="64"
+                             VerticalOptions="Center">
+                    <Label Text="{Binding MinText}" FontSize="30" />
+                    <Label Text=":" FontSize="30" />
+                    <Label Text="{Binding SecText}" FontSize="30" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
