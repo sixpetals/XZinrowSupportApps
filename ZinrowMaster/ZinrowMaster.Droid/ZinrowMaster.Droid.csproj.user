@@ -4,5 +4,6 @@
     <SelectedDevice>Google Nexus 7</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
     <AndroidDesignerPreferredTheme>MyTheme</AndroidDesignerPreferredTheme>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>
